@@ -1,0 +1,15 @@
+{
+  "name": "subscribe",
+  "version": "1.0.0",
+  "description": "A library implemente of Subscribe",
+  "main": "index.js",
+  "author": "CodeWen",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build":"rollup --config"
+  },
+  "devDependencies": {
+    "rollup": "^2.56.3"
+  }
+}
