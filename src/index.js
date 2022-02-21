@@ -1,44 +1,58 @@
-export default class {
+class EventEmitter{
+    static defaultMaxListeners = 10
     constructor(){
-        this.callbackMap=new Map();
+        this._events = new Map();
     }
-
-    regist(event,handler){
-        let handlers = this.callbackMap.get( evt );
-        if(!handlers){
-            handlers=new Set();
-            handlers.set(event,handlers);
+    on( type, cb, flag ){
+        if( this._events.has( type ) ){
+            let cbs = this._events.get( type )
+            flag ? cbs.unshift( cb ) : cbs.push( cb ) 
+        }else{
+            this._events.set( type, [ cb ] )
         }
-        handlers.add(handler);
-        return this;
+        if( this._events.get( type ).length >= EventEmitter.defaultMaxListeners ){
+            console.warn( '超出最大监听数量' )
+        }  
+        return this       
     }
-
-    emit(event,...args){
-        const handlers = this.callbackMap.get( event );
-        if( !handlers ) return false;
-        handlers.forEach( handler => handler.call( this, ...args ) );
-    }
-   
-    once(event,handler){
-        const _handler = ( ...args ) => {
-            handler.apply( this, args );
-            this.removeListener( event, _handler );
-        };
-        return this.regist( event, _handler );
-    }
-
-    removeListener(event,listener){
-        const handlers = this.callbackMap.get( event );
-        handlers && handlers.delete( listener );
-        return this;
-    }
-
-    removeAllListeners(event){
-        const listener=this.callbackMap.get(event);
-        if(listener){
-            listener.clear();
-            this.callbackMap.delete(event);
+    once( type, cb, flag ){
+        let _once = ( ...args ) => {
+            cb.apply( this, args );
+            this.removeListener( type, _once )
         }
-
+        return this.on( type, _once, flag)
+    }
+    emit( type ){
+        let args = Array.prototype.slice.call( arguments, 1 )
+        if( this._events.has( type ) ){
+            this._events.get( type ).forEach( ( cb ) => {
+                cb.apply( this, args )
+            })
+        }
+    }
+    setMaxListeners( max ){
+        EventEmitter.defaultMaxListeners = max;
+    }
+    getAllListenerType(){
+        return [ ...this._events.keys() ]
+    }
+    getAllListenerFunc( type ){
+        if( this._events.has( type ) ){
+            return this._events.get( type )
+        }
+        return []
+    }
+    removeListener( type, cb ){
+        if( this._events.has( type ) ){
+            let cbs  = this._events.get( type )
+            cbs = cbs.filter( ( listen ) => cb !== listen )
+            this._events.set( type ,cbs )
+        }
+        return this
+    }
+    removeAllListener(){
+        this._events.clear()
+        return this
     }
 }
+module.exports = EventEmitter

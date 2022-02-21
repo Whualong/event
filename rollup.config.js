@@ -1,8 +1,7 @@
 export default {
     input: 'src/index.js',
     output : {
-        name : "subscribe.js",
-        file : "dist/dubscribe.build.js",
+        name : "EventEmitter.umd.js",
+        file : "dist/EventEmitter.umd.js",
         format : "umd",
-    }
-}
+    }}

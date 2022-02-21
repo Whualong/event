@@ -7,9 +7,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build":"rollup --config"
+    "build": "rollup --config",
+    "test": "jest"
   },
   "devDependencies": {
+    "jest": "^27.5.1",
     "rollup": "^2.56.3"
   }
 }
