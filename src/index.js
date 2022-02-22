@@ -1,5 +1,4 @@
 export default class Event{
-    static defaultMaxListeners = 10
     constructor(){
         this._events = new Map();
     }
@@ -62,3 +61,4 @@ export default class Event{
         return this
     }
 }
+Event.defaultMaxListeners = 10

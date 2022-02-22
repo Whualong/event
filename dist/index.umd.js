@@ -5,7 +5,6 @@
 }(this, (function () { 'use strict';
 
     class Event{
-        static defaultMaxListeners = 10
         constructor(){
             this._events = new Map();
         }
@@ -67,6 +66,7 @@
             return this
         }
     }
+    Event.defaultMaxListeners = 10;
 
     return Event;
 
