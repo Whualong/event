@@ -1,6 +1,6 @@
 {
-  "name": "whualong-event",
-  "version": "0.0.1",
+  "name": "whl-event",
+  "version": "0.0.2",
   "description": "event of node.js",
   "keywords": [
     "event"
