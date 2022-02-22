@@ -2,7 +2,10 @@
   "name": "@Whualong/event",
   "version": "0.0.1",
   "description": "event of node.js",
-  "keywords": "event",
+  "keywords": [
+    "event"
+  ],
+  "private":false,
   "main": "dist/index.cjs.js",
   "module": "src/index.js",
   "author": "Whualong",
@@ -11,6 +14,14 @@
     "build": "rollup --config",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Whualong/event.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Whualong/event/issues"
+  },
+  "homepage": "https://github.com/Whualong/event#readme",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
