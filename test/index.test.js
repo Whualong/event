@@ -1,4 +1,4 @@
-const Event = require("../dist/index.cjs.js");
+const Event = require("../dist/event.cjs.js");
 describe( "Event",  () => {
     let em = new Event()
     test( 'on', () => {

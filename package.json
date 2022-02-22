@@ -3,11 +3,11 @@
   "version": "0.0.3",
   "description": "event of node.js",
   "keywords": [
-    "event"
+    "event","发布订阅模式"
   ],
   "private": false,
-  "main": "dist/index.cjs.js",
-  "module": "src/index.js",
+  "main": "dist/event.cjs.js",
+  "module": "dist/event.esm.js",
   "author": "Whualong",
   "license": "MIT",
   "scripts": {
@@ -27,7 +27,11 @@
   },
   "homepage": "https://github.com/Whualong/event#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "babel-preset-latest": "^6.24.1",
     "jest": "^27.5.1",
-    "rollup": "^2.56.3"
+    "rollup": "^2.56.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
   }
 }
