@@ -1,9 +1,10 @@
 {
   "name": "whl-event",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "event of node.js",
   "keywords": [
-    "event","发布订阅模式"
+    "event",
+    "发布订阅模式"
   ],
   "private": false,
   "main": "dist/event.cjs.js",
