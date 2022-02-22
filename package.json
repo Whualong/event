@@ -1,11 +1,13 @@
 {
-  "name": "subscribe",
-  "version": "1.0.0",
-  "description": "A library implemente of Subscribe",
-  "main": "index.js",
-  "author": "CodeWen",
+  "name": "@Whualong/event",
+  "version": "0.0.1",
+  "description": "event of node.js",
+  "keywords": "event",
+  "main": "dist/index.cjs.js",
+  "module": "src/index.js",
+  "author": "Whualong",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "rollup --config",
     "test": "jest"

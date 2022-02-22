@@ -1,6 +1,6 @@
-const EventEmitter = require("../src/index.js");
-describe( "EventEmitter",  () => {
-    let em = new EventEmitter()
+const Event = require("../dist/index.cjs.js");
+describe( "Event",  () => {
+    let em = new Event()
     test( 'on', () => {
         let flag = false;
         em.on( 'click', ( a, b ) => {
@@ -25,13 +25,13 @@ describe( "EventEmitter",  () => {
     })
     test( 'getAllListenerType', () => {
         const types = [ 'click','enter' ]
-        em.removeAllListener()
+        em.removeAllListener( 'click' )
+        em.removeAllListener( 'one' )
         em.on( 'click', () => {} )
         em.on( 'enter', () => {} )
         expect( em.getAllListenerType() ).toEqual( types )
     })
     test( 'removeListener', () => {
-        em.removeAllListener()
         let flag = 1
         function lis_1(){
             flag = 2
@@ -46,7 +46,7 @@ describe( "EventEmitter",  () => {
         expect( flag ).toBe( 2 )
     })
     test( 'getAllListenerFunc', () => {
-        em.removeAllListener()
+        em.removeAllListener( 'click' )
         const FuncArr = [ lis_1, lis_2 ]
         function lis_1(){
             flag = 2
@@ -60,6 +60,6 @@ describe( "EventEmitter",  () => {
     })
     test( 'maxDefaultListeners', () => {
         em.setMaxListeners( 100 )
-        expect( EventEmitter.defaultMaxListeners ).toBe( 100 )
+        expect( Event.defaultMaxListeners ).toBe( 100 )
     })
 })

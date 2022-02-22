@@ -1,9 +1,10 @@
-(function (factory) {
+(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
-    factory();
-}((function () { 'use strict';
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.index = factory());
+}(this, (function () { 'use strict';
 
-    class EventEmitter{
+    class Event{
         static defaultMaxListeners = 10
         constructor(){
             this._events = new Map();
@@ -15,7 +16,7 @@
             }else {
                 this._events.set( type, [ cb ] );
             }
-            if( this._events.get( type ).length >= EventEmitter.defaultMaxListeners ){
+            if( this._events.get( type ).length >= Event.defaultMaxListeners ){
                 console.warn( '超出最大监听数量' );
             }  
             return this       
@@ -36,7 +37,7 @@
             }
         }
         setMaxListeners( max ){
-            EventEmitter.defaultMaxListeners = max;
+            Event.defaultMaxListeners = max;
         }
         getAllListenerType(){
             return [ ...this._events.keys() ]
@@ -55,11 +56,18 @@
             }
             return this
         }
-        removeAllListener(){
-            this._events.clear();
+        removeAllListener( type ){
+            if( this._events.has( type ) ){
+               let _lis = this._events.get( type );
+               _lis.forEach( (cb) => {
+               });
+               _lis = null;
+               this._events.delete( type );
+            }
             return this
         }
     }
-    module.exports = EventEmitter;
+
+    return Event;
 
 })));
