@@ -1,11 +1,11 @@
 {
   "name": "whl-event",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "event of node.js",
   "keywords": [
     "event"
   ],
-  "private":false,
+  "private": false,
   "main": "dist/index.cjs.js",
   "module": "src/index.js",
   "author": "Whualong",
