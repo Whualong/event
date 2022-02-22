@@ -17,6 +17,10 @@
     "type": "git",
     "url": "git+https://github.com/Whualong/event.git"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "bugs": {
     "url": "https://github.com/Whualong/event/issues"
   },
