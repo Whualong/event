@@ -7,7 +7,6 @@
   "module": "src/index.js",
   "author": "Whualong",
   "license": "MIT",
-  "private": false,
   "scripts": {
     "build": "rollup --config",
     "test": "jest"
