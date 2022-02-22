@@ -22,10 +22,6 @@
     "url": "https://github.com/Whualong/event/issues"
   },
   "homepage": "https://github.com/Whualong/event#readme",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
   "devDependencies": {
     "jest": "^27.5.1",
     "rollup": "^2.56.3"
